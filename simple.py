@@ -6,6 +6,7 @@ from datetime import datetime
 
 def generate_sitemap():
     """
+    build the sitemap
     """
     sitemap = SiteMap()
     sitemap.append("http://www.xxx.com", datetime.now(), "weekly", 0.9)
@@ -15,8 +16,7 @@ def generate_sitemap():
 
 def generate_sitemap_gz():
     """
-
-    :return:
+    get the gzip sitemap format
     """
     sitemap = SiteMap()
     sitemap.append("http://www.xxx.com", datetime.now(), "weekly", 0.9)

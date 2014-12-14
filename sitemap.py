@@ -92,7 +92,6 @@ class SiteMap(object):
     def to_string(self):
         """
         get the xml string
-        :return:
         """
         return self._doc.toprettyxml(encoding="utf-8")
 
@@ -102,6 +101,7 @@ class SiteMapRoot(object):
     def __init__(self, domain, file_path, exist):
         """
         :param domain: the website domain
+        :param file_path: the sitemap xml file path
         :param exist: bool, check the sitemap exist or not
         """
         self.domain = domain
