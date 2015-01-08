@@ -3,7 +3,7 @@ sitemap
 
 Generate a sitemap of a website for search engine to crawl the content.
 
-Please visit the [http://www.sitemaps.org] to see the strand of the sitemap.
+Please visit the [http://www.sitemaps.org] to see the strandard of the sitemap.
 
 ## How to use?
 
