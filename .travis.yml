@@ -1,0 +1,30 @@
+language: python
+
+python:
+  - '3.5'
+  - '3.6'
+
+sudo: false
+
+cache: pip
+
+install:
+  - pip install -U wheel pypi setuptools --upgrade
+  - pip install pytest pytest-cov pytest-runner codecov --upgrade
+
+script:
+  - pytest -v -s
+  - py.test -v --cov=sitemaps --cov-report xml
+
+after_success:
+  - codecov -e $TRAVIS_PYTHON_VERSION
+
+deploy:
+  provider: pypi
+  user: nooperpudd
+  password:
+    secure: KT9HJ/F1rrPatnSfvxe2d1IXrI9jQnecuGLeA0sNEXdyqmyId4eg8RRyDwKKvg9fbxT9/T4ejJsLh9ipCB1NL/5y2eKgk8p+61pmXW/5DiMvrRbbUZsrsQqTKroAZGL+Pvi5PrX/tXGhruY9gpviAQsAejfI/+KokskdPS+Ez3WhBmZ3nj522D5KShiaYQPetDbodGv9KLxethkidycY6cLu9FXW5hpMtYDyMy6/cAw5+NrbVfmT28q6wOSwv9k6Ny9FEA1w4hhw/lcTxfUNVhNTRoTJ4J7nFZMYykWMrPyAaKACTIpZ6pG7vYia0aVbU0Mzoxpakd0b7Y1epk6En7ojjZQ170V/ttjevPNoqTGyPvridRXh3mWqIxDQA0cqJH+gC76YtGeSHim54jwjg2dxhxE3ceCoz7WOxzTIOBp+Xi7bVZHVeXMFWDZEDpLeCVj1it7aMy5oUM6YKCoqRQshBIdHX3wlwk2gdzpiL/I5DHKP/aLaPD/TFe1pGDFW6hnaCw6TkICj6oLruFQUqbAhTBBJyWenSRit0LLBpYLgiVRU9JQYvJUCjD31zUiSU2K3GfYxk08kAYNSDuyNnKi6W/v1AvQ64+cNo166/RMbxNFBsSzfes+PbUAKMBFVoFwT6+XrxKsFw9ZUxZ67N1W4jV+4v8Pqpw0JIQ8Q+nA=
+  distributions: sdist
+  on:
+    tags: true
+    python: '3.6'

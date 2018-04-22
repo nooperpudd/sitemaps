@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from sitemap import SiteMapRoot, SiteMap
+from sitemaps import SiteMapRoot, SiteMap
 from datetime import datetime
 
 
