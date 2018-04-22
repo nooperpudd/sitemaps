@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
-from xml.dom import minidom
-from datetime import datetime
+import codecs
 import gzip
+from datetime import datetime
+from xml.dom import minidom
 
 
 class SiteMap(object):
     """
     http://www.sitemaps.org/protocol.html
     """
+
     def __init__(self, domain=None):
         """
         :param domain: the website domain
@@ -84,7 +86,7 @@ class SiteMap(object):
         """
         :param path: the xml file path,
         """
-        with open(path, "w+") as xml_file:
+        with codecs.open(path, "w+", encoding="utf-8") as xml_file:
             self._doc.writexml(xml_file, indent="\t", addindent="\t", newl="\n", encoding="utf-8")
 
     @property
@@ -143,5 +145,5 @@ class SiteMapRoot(object):
         sitemap_element.appendChild(lastmod_element)
 
     def save_xml(self):
-        with open(self.file_path, mode="w+") as xml_file:
+        with codecs.open(self.file_path, mode="w+", encoding="utf-8") as xml_file:
             self.doc.writexml(xml_file, indent="\t", addindent="\t", newl="\n", encoding="utf-8")
